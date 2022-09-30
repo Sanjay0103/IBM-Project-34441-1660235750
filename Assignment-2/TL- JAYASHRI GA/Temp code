@@ -1,0 +1,20 @@
+import time
+i=0
+while (i<=1440):
+    i=i+1
+    time.sleep(10)
+    import random
+    temp=random.randint(0,30)
+    humid=random.randint(1,100)
+    if temp<=15:
+        print(temp, "Degree \n The Temperature is Low ")
+    elif temp<=25:
+        print(temp, "Degree \n The Temperature is Normal ")
+    else:
+        print (temp, "Degree \n The Temperature is High, \n \b Alarm is on ")
+    if humid<=50:
+        print (humid, ": Humidity is Low \n")
+    elif humid<=80:
+        print (humid, ": Humidity is Normal \n")
+    else:
+        print (humid, ": Humidity is High \n")
