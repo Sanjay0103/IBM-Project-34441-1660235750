@@ -1,0 +1,23 @@
+PTHON CODE FOR BLINKING LED AND TRAFFIC LED FOR RASPBERRY PI
+
+PROGRAM:
+From gpiozero import led
+from time import sleep 
+Red= led(10)
+Yellow= led(5)
+Green=led(3) 
+while True: 
+            Green.off()
+            Red.off() 
+            Yellow.off()
+            sleep(1)
+            Green.on()
+            sleep(1)
+            Green.off()
+            sleep(1)
+            Red.on()
+            sleep(1)
+            Red.off()
+            Yellow.on()
+            sleep(1) 
+            Yellow.off()
