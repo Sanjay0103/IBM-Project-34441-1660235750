@@ -1,0 +1,38 @@
+const int TRIG = 15; 
+const int ECHO = 2; 
+const unsigned int MAX_DIST = 23200; 
+void setup() { 
+pinMode(TRIG, OUTPUT); 
+digitalWrite(TRIG, LOW); 
+pinMode(ECHO, INPUT ) ; 
+Serial.begin(9600); 
+} 
+void loop() {
+unsigned long t1; 
+unsigned long t2; 
+unsigned long pulse_width; 
+float cm; 
+float inches; 
+digitalWrite(TRIG, HIGH); 
+delayMicroseconds(10); 
+digitalWrite(TRIG, LOW); 
+while (digitalRead( ECHO )==0 ); 
+t1= micros (); 
+while (digitalRead(ECHO) == 1); 
+t2= micros (); 
+pulse_width = t2-t1; 
+cm=pulse_width / 58 ; 
+inches = pulse_width/148.0; 
+if (pulse_width >MAX_DIST){ 
+Serial.println("OUT OF RANGE"); 
+} else { 
+Serial.println("*******************************"); 
+Serial.print("THE MEASURED DISTANCE IN CM: "); 
+Serial.println(cm); 
+if( cm < 100 ){ 
+Serial.println("ALERT!!"); 
+} 
+Serial.print("***********************************"); 
+} 
+delay(1000);
+}
